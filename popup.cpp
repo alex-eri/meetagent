@@ -122,6 +122,16 @@ void Popup::createTrayIcon()
     QAction *settingsAction = new QAction(tr("Настройки"), this);
     connect(settingsAction, &QAction::triggered, this, &Popup::showSettings);
 
+
+    QMessageBox *aboutBox = new QMessageBox(this);
+    aboutBox->setText("<h3>Агент конференций</h3>");
+    aboutBox->setInformativeText(" ⓒ 2020, Aleksandr Stepanov <sa@eri.su>");
+    aboutBox->setStandardButtons(QMessageBox::Ok);
+    aboutBox->setIcon(QMessageBox::Information);
+
+    QAction *aboutAction = new QAction(tr("О программе"), this);
+    connect(aboutAction, &QAction::triggered, aboutBox, &QMessageBox::exec);
+
     QAction *quitAction = new QAction(tr("Выход"), this);
     connect(quitAction, &QAction::triggered, qApp, &QCoreApplication::quit);
 
@@ -129,6 +139,7 @@ void Popup::createTrayIcon()
     trayIconMenu->addAction(inviteAction);
     trayIconMenu->addAction(settingsAction);
     trayIconMenu->addSeparator();
+    trayIconMenu->addAction(aboutAction);
     trayIconMenu->addAction(quitAction);
 
     trayIcon->setContextMenu(trayIconMenu);
