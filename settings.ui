@@ -20,7 +20,7 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Настройки уведомлений</string>
   </property>
   <property name="sizeGripEnabled">
    <bool>true</bool>

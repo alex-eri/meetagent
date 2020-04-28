@@ -4,6 +4,10 @@
 #include <QApplication>
 #include <QObject>
 
+#ifdef Q_OS_WIN32
+#include <QDir>
+#endif
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);

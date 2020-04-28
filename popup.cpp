@@ -23,7 +23,7 @@ void Settings::showEvent(QShowEvent *event) {
 
 void Settings::load(){
     qDebug() << "load";
-    ui->link->setText(settings.value("user/link", "http://meet.ivjh.ru:8555").toString());
+    ui->link->setText(settings.value("user/link", "http://meet.ivjh.ru:8555/").toString());
     ui->name->setText(settings.value("user/name", tr("Пользователь")).toString());
     ui->server->setText(settings.value("transport/server", "popups.eri.su").toString());
     QStringList selected = settings.value("user/groups").toStringList();
@@ -184,8 +184,10 @@ void Popup::createTrayIcon()
     trayIconMenu->addAction(quitAction);
 
     trayIcon->setContextMenu(trayIconMenu);
-    trayIcon->setIcon(QIcon(":/icons/icon.icns"));
+    trayIcon->setIcon(QIcon(":/icons/icon.ico"));
     //connect(trayIcon, &QSystemTrayIcon::activated,trayIconMenu,&QMenu::show);
+    //connect(trayIcon, &QSystemTrayIcon::activated,this,&Popup::showInvite);
     trayIcon->show();
+
 }
 
