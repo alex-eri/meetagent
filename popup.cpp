@@ -153,6 +153,17 @@ void Settings::saveSettings()
     emit changedServer(ui->server->text());
 }
 
+void Popup::clickedTrayIcon(QSystemTrayIcon::ActivationReason reason) {
+
+    if (reason == QSystemTrayIcon::DoubleClick)    {
+        showInvite();
+    }
+    else if (reason == QSystemTrayIcon::DoubleClick) {
+        if (current_link.isValid())
+            show();
+    }
+}
+
 void Popup::createTrayIcon()
 {
     trayIcon = new QSystemTrayIcon(this);

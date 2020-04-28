@@ -45,6 +45,7 @@ private:
     Ui::Settings *ui;
     QSettings settings;
 
+
 };
 
 
@@ -78,6 +79,8 @@ private:
     QSettings settings;
     QSystemTrayIcon *trayIcon;
     void createTrayIcon();
+private slots:
+    void clickedTrayIcon(QSystemTrayIcon::ActivationReason reason);
 };
 
 
