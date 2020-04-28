@@ -10,11 +10,11 @@
     <x>0</x>
     <y>0</y>
     <width>320</width>
-    <height>167</height>
+    <height>127</height>
    </rect>
   </property>
   <property name="sizePolicy">
-   <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
+   <sizepolicy hsizetype="Fixed" vsizetype="Minimum">
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
@@ -244,7 +244,7 @@
    <item>
     <widget class="QLabel" name="labelInvite">
      <property name="sizePolicy">
-      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+      <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
        <horstretch>0</horstretch>
        <verstretch>0</verstretch>
       </sizepolicy>
@@ -295,10 +295,7 @@
       <bool>true</bool>
      </property>
      <property name="text">
-      <string>Александр приглашает в конференцию [hello_word](http://eri.su/hello_word/)  </string>
-     </property>
-     <property name="textFormat">
-      <enum>Qt::MarkdownText</enum>
+      <string>Александр приглашает в конференцию [hello_word]</string>
      </property>
      <property name="scaledContents">
       <bool>false</bool>
@@ -313,13 +310,10 @@
       <number>0</number>
      </property>
      <property name="openExternalLinks">
-      <bool>false</bool>
+      <bool>true</bool>
      </property>
      <property name="textInteractionFlags">
       <set>Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse</set>
-     </property>
-     <property name="buddy">
-      <cstring></cstring>
      </property>
     </widget>
    </item>
