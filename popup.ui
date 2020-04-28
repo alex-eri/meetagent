@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>320</width>
-    <height>130</height>
+    <height>167</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -235,7 +235,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="icons.qrc">
-    <normaloff>:/icons/icon.icns</normaloff>:/icons/icon.icns</iconset>
+    <normaloff>:/icons/icon.ico</normaloff>:/icons/icon.ico</iconset>
   </property>
   <property name="windowOpacity">
    <double>0.900000000000000</double>
@@ -341,7 +341,7 @@
      <item>
       <widget class="QPushButton" name="pushCancel">
        <property name="sizePolicy">
-        <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+        <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
@@ -377,7 +377,7 @@
      <item>
       <widget class="QPushButton" name="pushOpen">
        <property name="sizePolicy">
-        <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+        <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
