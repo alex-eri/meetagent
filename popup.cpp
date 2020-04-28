@@ -197,7 +197,8 @@ void Popup::createTrayIcon()
 
     trayIcon->setContextMenu(trayIconMenu);
     trayIcon->setIcon(QIcon(":/icons/icon.ico"));
-    //connect(trayIcon, &QSystemTrayIcon::activated,trayIconMenu,&QMenu::show);
+    connect(trayIcon, &QSystemTrayIcon::activated,
+            this,&Popup::clickedTrayIcon);
     //connect(trayIcon, &QSystemTrayIcon::activated,this,&Popup::showInvite);
     trayIcon->show();
 
