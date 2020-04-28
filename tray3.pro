@@ -25,10 +25,11 @@ HEADERS += \
     transport.h
 
 FORMS += \
-    popup.ui
+    popup.ui \
+    settings.ui
 
 TRANSLATIONS += \
-    tray3_ru_RU.ts
+    tray3_en_US.ts
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -43,6 +44,6 @@ RESOURCES += \
 
 RC_ICONS = icons/icon.ico
 
-ICON = icons/icon.icns
+ICON = icons/icon.ico
 
 

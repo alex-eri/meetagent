@@ -11,8 +11,7 @@ int main(int argc, char *argv[])
     QCoreApplication::setOrganizationDomain("eri.su");
     QCoreApplication::setApplicationName("Popups");
     QApplication::setQuitOnLastWindowClosed(false);
-    a.setWindowIcon(QIcon(":/icons/icon.icns"));
-
+    a.setWindowIcon(QIcon(":/icons/icon.ico"));
 
     if (!QSystemTrayIcon::isSystemTrayAvailable()) {
         QMessageBox::critical(nullptr, QObject::tr("Systray"),
@@ -21,6 +20,11 @@ int main(int argc, char *argv[])
         return 1;
     }
 
+    #ifdef Q_OS_WIN32
+        QSettings autorun("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", QSettings::NativeFormat);
+        autorun.setValue("meetagent", QDir::toNativeSeparators(QCoreApplication::applicationFilePath()));
+        autorun.sync();
+    #endif
 
     QSettings settings;
     Popup w;
@@ -31,9 +35,9 @@ int main(int argc, char *argv[])
     t.setServer(server);
     QObject::connect(&t, &Transport::onMessage, &w, &Popup::open);
     QObject::connect(&w, &Popup::sendInvite, &t, &Transport::sendInvite);
-    QObject::connect(&w, &Popup::changedServer, &t, &Transport::setServer);
+  //  QObject::connect(&w, &Popup::changedServer, &t, &Transport::setServer);
 
-    //w.show();
+//    w.show();
 
     return a.exec();
 }
