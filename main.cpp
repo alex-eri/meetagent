@@ -32,6 +32,7 @@ int main(int argc, char *argv[])
 
     QSettings settings;
     Popup w;
+
     Transport t;
 
     QString server = settings.value("transport/server", "popups.eri.su").toString();
@@ -39,7 +40,7 @@ int main(int argc, char *argv[])
     t.setServer(server);
     QObject::connect(&t, &Transport::onMessage, &w, &Popup::open);
     QObject::connect(&w, &Popup::sendInvite, &t, &Transport::sendInvite);
-  //  QObject::connect(&w, &Popup::changedServer, &t, &Transport::setServer);
+    QObject::connect(w.settingsDialog, &Settings::changedServer, &t, &Transport::setServer);
 
 //    w.show();
 

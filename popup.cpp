@@ -150,7 +150,7 @@ void Settings::saveSettings()
     settings.setValue("user/link", ui->link->text());
     settings.setValue("transport/server", ui->server->text());
     settings.setValue("user/groups", ((QStringListModel*) ui->groups->selectionModel()->model())->stringList());
-    //emit changedServer(ui->server->text());
+    emit changedServer(ui->server->text());
 }
 
 void Popup::createTrayIcon()
@@ -182,6 +182,7 @@ void Popup::createTrayIcon()
     trayIconMenu->addSeparator();
     trayIconMenu->addAction(aboutAction);
     trayIconMenu->addAction(quitAction);
+    trayIconMenu->setDefaultAction(inviteAction);
 
     trayIcon->setContextMenu(trayIconMenu);
     trayIcon->setIcon(QIcon(":/icons/icon.ico"));

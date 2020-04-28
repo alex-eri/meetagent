@@ -22,6 +22,32 @@ namespace Ui {
 }
 QT_END_NAMESPACE
 
+class Settings : public QDialog
+{
+    Q_OBJECT
+public:
+    Settings(QWidget *parent = nullptr);
+    ~Settings();
+
+    //QStringListModel *groups = new QStringListModel();
+    QStringList groups;
+    QStringListModel groupsModel;
+protected:
+    void showEvent(QShowEvent * event) override;
+
+public slots:
+    void appendGroup();
+    void saveSettings();
+    void load();
+signals:
+    void changedServer(QString server);
+private:
+    Ui::Settings *ui;
+    QSettings settings;
+
+};
+
+
 class Popup : public QWidget
 {
     Q_OBJECT
@@ -31,7 +57,7 @@ public:
     ~Popup();
     void open(QJsonObject jobject);
     void showInvite();
-    QDialog *settingsDialog;
+    Settings *settingsDialog;
 
 public slots:
     void openBrowser();
@@ -55,28 +81,6 @@ private:
 };
 
 
-class Settings : public QDialog
-{
-    Q_OBJECT
-public:
-    Settings(QWidget *parent = nullptr);
-    ~Settings();
 
-    //QStringListModel *groups = new QStringListModel();
-    QStringList groups;
-    QStringListModel groupsModel;
-protected:
-    void showEvent(QShowEvent * event) override;
-
-public slots:
-    void appendGroup();
-    void saveSettings();
-    void load();
-
-private:
-    Ui::Settings *ui;
-    QSettings settings;
-
-};
 
 #endif // POPUP_H
